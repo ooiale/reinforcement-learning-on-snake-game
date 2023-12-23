@@ -1,5 +1,6 @@
 Reward:
   +10 - eat food
+  
   -10 - game over
   0   - else
 
