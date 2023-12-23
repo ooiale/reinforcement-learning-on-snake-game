@@ -10,10 +10,13 @@ Actions:
   
 State (11 boolean values):  
   [danger straight, danger right, danger left,  
-     direction left, direction right,  
-     direction up, direction down,  
-     food left, food right,  
-     food up, food down]  
+     &emsp;direction left, direction right,
+     &emsp;direction up, direction down,  
+     &emsp;food left, food right,  
+     &emsp;food up, food down]  
+
+<p>
+</p>
   
 Model:  
   predict an action given the state:  
