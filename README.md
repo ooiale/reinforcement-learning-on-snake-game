@@ -12,7 +12,6 @@ State (11 boolean values):
   [danger straight, danger right, danger left,  
    direction left, direction right,  
    direction up, direction down,  
-  
    food left, food right,  
    food up, food down]  
   
