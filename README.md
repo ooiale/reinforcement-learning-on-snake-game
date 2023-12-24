@@ -1,5 +1,4 @@
-The AI does not know the location of the body of the snake therefore, implementing this to the danger directions would make it much better.
-
+Cool!
 
 
 Parameters/Info
