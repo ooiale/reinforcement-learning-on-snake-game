@@ -1,4 +1,3 @@
-Cool!
 
 
 Parameters/Info
