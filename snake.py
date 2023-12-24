@@ -37,7 +37,7 @@ BLUE2 = (0, 100, 255)
 BLACK = (0,0,0)
 
 BLOCK_SIZE = 20
-SPEED = 200
+SPEED = 500
 
 direction_queue = []
 direction_map = {
@@ -89,26 +89,6 @@ class SnakeGame:
                 pygame.quit()
                 quit()
 
-
-                '''
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_LEFT and self.direction != Direction.RIGHT and self.direction!= Direction.LEFT:
-                    direction_queue.append('l')
-                    #self.direction = Direction.LEFT
-                elif event.key == pygame.K_RIGHT and self.direction != Direction.LEFT and self.direction!= Direction.RIGHT:
-                    direction_queue.append('r')
-                    #self.direction = Direction.RIGHT
-                elif event.key == pygame.K_UP and self.direction != Direction.DOWN and self.direction!= Direction.UP:
-                    direction_queue.append('u')
-                    #self.direction = Direction.UP
-                elif event.key == pygame.K_DOWN and self.direction != Direction.UP and self.direction!= Direction.DOWN:
-                    direction_queue.append('d')
-                    #self.direction = Direction.DOWN
-        '''
-        # 2. move
-        #if direction_queue:
-        #    self.direction = direction_map[direction_queue[0]]
-        #    direction_queue.pop(0)
         self._move(action) # update the head
         self.snake.insert(0, self.head)
         
@@ -117,7 +97,7 @@ class SnakeGame:
         game_over = False
         if self.is_collision() or self.frame_iteration > 300*len(self.snake):
             game_over = True
-            reward = -10
+            reward = -11
             return reward, game_over, self.score
             
         # 4. place new food or just move
@@ -191,20 +171,3 @@ class SnakeGame:
             
         self.head = Point(x, y)
             
-
-'''
-if __name__ == '__main__':
-    game = SnakeGame()
-    
-    # game loop
-    while True:
-        game_over, score = game.play_step()
-        
-        if game_over == True:
-            break
-        
-    print('Final Score', score)
-        
-        
-    pygame.quit()
-'''

@@ -5,10 +5,14 @@ from collections import deque
 from snake import SnakeGame, Direction, Point
 from model import Linear_QNet, QTrainer
 from graphs import plot
+from isRectangle import is_closed_shape
 
 MAX_MEMORY = 100_000
-BATCH_SIZE = 1000
+BATCH_SIZE = 100
 LR = 0.001
+
+
+
 
 class Agent:
 
@@ -18,8 +22,8 @@ class Agent:
         self.gamma = 0.9 #discount rate 
         self.memory = deque(maxlen = MAX_MEMORY) #popleft if overflow
 
-        self.model = Linear_QNet(11, 256, 3)
-        self.model.load('model.pth')
+        self.model = Linear_QNet(12, 256, 3)
+        #self.model.load('model.pth')
         self.trainer = QTrainer(self.model, LR, self.gamma)
 
     def get_state(self, game):
@@ -35,6 +39,12 @@ class Agent:
         dir_d = game.direction == Direction.DOWN
 
         state = [
+            #isTrappingItself
+            (dir_r and is_closed_shape([point_r] + game.snake))or
+            (dir_l and is_closed_shape([point_l] + game.snake))or
+            (dir_d and is_closed_shape([point_d] + game.snake))or
+            (dir_u and is_closed_shape([point_u] + game.snake)),
+
             #isDangerStraight
             (dir_r and game.is_collision(point_r)) or
             (dir_l and game.is_collision(point_l)) or
