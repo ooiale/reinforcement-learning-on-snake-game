@@ -4,7 +4,7 @@ Parameters/Info
 
 Reward:  
   +10 - eat food  
-  -10 - game over  
+  -11 - game over  
   0   - else  
   
 Actions:  
@@ -13,7 +13,8 @@ Actions:
   [0, 0, 1] - turn left  
   
 State (11 boolean values):  
-  [danger straight, danger right, danger left,  
+  [isTrappingItself,  
+    &emsp;danger straight, danger right, danger left,  
      &emsp;direction left, direction right,
      &emsp;direction up, direction down,  
      &emsp;food left, food right,  
